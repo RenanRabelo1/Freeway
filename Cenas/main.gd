@@ -36,8 +36,7 @@ func _on_timer_carros_lentos_timeout() -> void:
 	# Só usa pistas da DIREITA → ESQUERDA
 	var pista_y = pistas_direita_esquerda_y[randi_range(0, pistas_direita_esquerda_y.size() - 1)]
 	carro.position = Vector2(1300, pista_y)
-	carro.scale
-	carro.scale.y = -1
+	carro.scale.x = -1
 	carro.set_linear_velocity(Vector2(-randf_range(700.0, 720.0), 0))  # Mais lento
 	carro.set_linear_damp(0.0)
 	

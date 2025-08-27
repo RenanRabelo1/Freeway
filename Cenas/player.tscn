@@ -85,7 +85,7 @@ script = ExtResource("1_e2nbm")
 position = Vector2(0, 2)
 scale = Vector2(0.29375, 0.30625)
 sprite_frames = SubResource("SpriteFrames_ruciq")
-animation = &"direita"
+animation = &"baixo"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(3, 4)

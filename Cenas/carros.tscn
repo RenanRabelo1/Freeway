@@ -72,7 +72,7 @@ position = Vector2(5.00002, 4.99998)
 rotation = -1.5708
 scale = Vector2(0.23531, 0.246683)
 sprite_frames = SubResource("SpriteFrames_cc6av")
-animation = &"Passaro03"
+animation = &"Passaro01"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(5, -2.04939e-05)
