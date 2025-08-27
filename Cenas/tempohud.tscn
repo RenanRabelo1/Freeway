@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://041erdobc3wq"]
+
+[node name="tempohud" type="CanvasLayer"]
+
+[node name="tempo" type="Label" parent="."]
+offset_left = 136.0
+offset_right = 190.0
+offset_bottom = 23.0
+text = "Tempo"
+
+[node name="numero" type="Label" parent="."]
+offset_left = 197.0
+offset_right = 207.0
+offset_bottom = 23.0
+text = "0"

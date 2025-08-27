@@ -1,14 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cv1e0h7bujdsj"]
+[gd_scene load_steps=11 format=3 uid="uid://cv1e0h7bujdsj"]
 
 [ext_resource type="Script" uid="uid://dtllg7dulmfiy" path="res://Cenas/carros.gd" id="1_pvg5f"]
 [ext_resource type="Texture2D" uid="uid://c2yrjmfxb035g" path="res://Aseprite/Helicopter/Helicopter1.png" id="2_eyynr"]
 [ext_resource type="Texture2D" uid="uid://d4achx6mib2wb" path="res://Aseprite/Helicopter/Helicopter2.png" id="3_aqtas"]
 [ext_resource type="Texture2D" uid="uid://bg34r3fsfqb5o" path="res://Aseprite/Helicopter/Helicopter3.png" id="4_dhytv"]
-[ext_resource type="Texture2D" uid="uid://brax6cpd8felr" path="res://Material Freeway/Material Freeway/carros/coches (5).png" id="5_aqtas"]
 [ext_resource type="Texture2D" uid="uid://dr5o3gnqna5v4" path="res://Aseprite/Gaivota/Gaivota1.png" id="5_dhytv"]
 [ext_resource type="Texture2D" uid="uid://56puy0nfyjqg" path="res://Aseprite/Gaivota/Gaivota2.png" id="6_7g5ho"]
 [ext_resource type="Texture2D" uid="uid://cdj5fjvvqj7sx" path="res://Aseprite/Gaivota/Gaivota3.png" id="7_6jem2"]
-[ext_resource type="Texture2D" uid="uid://bho86s63p2ktm" path="res://Aseprite/Gaivota/Ray..png" id="8_dhytv"]
+[ext_resource type="Texture2D" uid="uid://bho86s63p2ktm" path="res://Aseprite/Gaivota/Ray..png" id="8_21wbt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cc6av"]
 animations = [{
@@ -42,7 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_dhytv")
+"texture": ExtResource("8_21wbt")
 }],
 "loop": true,
 "name": &"Passaro03",
@@ -53,40 +52,9 @@ animations = [{
 "name": &"Passaro04",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_aqtas")
-}],
+"frames": [],
 "loop": true,
 "name": &"Passaro05",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ll65j"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"Oposta1",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Oposta2",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Oposta3",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Oposta4",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Oposta5",
 "speed": 5.0
 }]
 
@@ -94,23 +62,17 @@ animations = [{
 size = Vector2(34.9999, 50.0001)
 
 [node name="Carros" type="RigidBody2D"]
-position = Vector2(25, 14)
 rotation = 1.5708
 scale = Vector2(0.2, 0.2)
 gravity_scale = 0.0
 script = ExtResource("1_pvg5f")
 
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
-position = Vector2(-14.9999, 25)
+position = Vector2(5.00002, 4.99998)
 rotation = -1.5708
-scale = Vector2(0.207087, 0.216172)
+scale = Vector2(0.23531, 0.246683)
 sprite_frames = SubResource("SpriteFrames_cc6av")
-animation = &"Passaro02"
-
-[node name="AnimacaoOposta" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_ll65j")
-animation = &"Oposta5"
+animation = &"Passaro03"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(5, -2.04939e-05)
@@ -118,6 +80,7 @@ shape = SubResource("RectangleShape2D_seikp")
 
 [node name="Notificador" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(5, -1.96759e-05)
+rotation = 0.00712227
 scale = Vector2(1.77244, 2.53829)
 
 [connection signal="screen_exited" from="Notificador" to="." method="_on_notificador_screen_exited"]

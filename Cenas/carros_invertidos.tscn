@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://btq7nv7h3hoi"]
+
+[ext_resource type="Texture2D" uid="uid://b36wguj1onfs6" path="res://Aseprite/Aseprite/HelicopteroInvertido1.png" id="1_edvbs"]
+[ext_resource type="Texture2D" uid="uid://3a62ssxpu23b" path="res://Aseprite/Aseprite/PassaroInvertido1.png" id="2_4ktix"]
+[ext_resource type="Texture2D" uid="uid://di4p0nn88her2" path="res://Aseprite/Aseprite/RayquazaInvertido.png" id="7_ojx3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssims"]
+size = Vector2(37.231, 151.049)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axspm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_edvbs")
+}],
+"loop": false,
+"name": &"Oposta1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ktix")
+}],
+"loop": false,
+"name": &"Oposta2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ojx3b")
+}],
+"loop": false,
+"name": &"Oposta3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Oposta4",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Oposta5",
+"speed": 5.0
+}]
+
+[node name="carros_invertidos" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 170)
+rotation = -1.51725
+scale = Vector2(0.891705, 0.892944)
+shape = SubResource("RectangleShape2D_ssims")
+
+[node name="AnimacaoOposta" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 165.556)
+rotation = -6.19705
+scale = Vector2(0.639865, 0.594215)
+sprite_frames = SubResource("SpriteFrames_axspm")
+animation = &"Oposta2"
+
+[node name="Notificador" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(21, 171)
+rotation = -1.52428
+scale = Vector2(2.14014, 9.78868)
