@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://wuwu6bkibi8j"]
+
+[ext_resource type="Texture2D" uid="uid://i2bhuir7j6k5" path="res://Material Freeway/Material Freeway/ganha.png" id="1_xd2l1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd2l1"]
+size = Vector2(1280, 18)
+
+[node name="LinhaChegada" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(640.125, 9)
+scale = Vector2(1.0002, 1)
+texture = ExtResource("1_xd2l1")
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(640, 9)
+shape = SubResource("RectangleShape2D_xd2l1")

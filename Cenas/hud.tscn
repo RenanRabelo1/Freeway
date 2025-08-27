@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl30r5ybkv1jh"]
+
+[ext_resource type="Script" uid="uid://c0jj8gokbnaof" path="res://Cenas/hud.gd" id="1_1pfdj"]
+[ext_resource type="FontFile" uid="uid://byrcjsl8xdr6k" path="res://Material Freeway/Material Freeway/PressStart2P-Regular.ttf" id="1_kgovw"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_1pfdj")
+
+[node name="Mensagem" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = -50.0
+offset_right = 352.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.91004, 0.314063, 0.448841, 1)
+theme_override_colors/font_shadow_color = Color(0.220742, 0.132998, 0.0356019, 1)
+theme_override_colors/font_outline_color = Color(0.305554, 0.120628, 0.0447911, 1)
+theme_override_fonts/font = ExtResource("1_kgovw")
+theme_override_font_sizes/font_size = 32
+text = "Parabéns, você venceu!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Placar" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 60.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.829747, 0.33643, 0.27448, 1)
+theme_override_colors/font_shadow_color = Color(0.175654, 7.33152e-05, 0.17144, 1)
+theme_override_fonts/font = ExtResource("1_kgovw")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 60.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0.520498, 0.285691, 0.184966, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.960836, 0.709456, 0.840257, 1)
+theme_override_colors/icon_normal_color = Color(0.754441, 0.297205, 0.259016, 1)
+theme_override_colors/font_outline_color = Color(0.67451, 0, 0, 1)
+theme_override_colors/font_color = Color(0.655804, 0.271217, 0.0727321, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.745098, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_kgovw")
+theme_override_font_sizes/font_size = 28
+text = "Reiniciar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

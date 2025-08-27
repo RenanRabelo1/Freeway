@@ -1,0 +1,98 @@
+[gd_scene load_steps=17 format=3 uid="uid://dpgao5ebcjpab"]
+
+[ext_resource type="Script" uid="uid://8s7lrjwbwmom" path="res://Cenas/player.gd" id="1_e2nbm"]
+[ext_resource type="Texture2D" uid="uid://chw0phlj5qu1x" path="res://Aseprite/Aseprite/AviãoBa1.png" id="2_2enhl"]
+[ext_resource type="Texture2D" uid="uid://t6fvbshuq1tq" path="res://Aseprite/Aseprite/AviãoBa2.png" id="3_ruciq"]
+[ext_resource type="Texture2D" uid="uid://dmcry0q4hdoa0" path="res://Aseprite/Aseprite/AviãoBa3.png" id="4_yk6xx"]
+[ext_resource type="Texture2D" uid="uid://vrmmdsjkalu3" path="res://Aseprite/Aseprite/AviãoCim1.png" id="5_bb2x8"]
+[ext_resource type="Texture2D" uid="uid://djnk1iafgnhn6" path="res://Aseprite/Aseprite/AviãoCim2.png" id="6_60xba"]
+[ext_resource type="Texture2D" uid="uid://mdybrcxl2ni7" path="res://Aseprite/Aseprite/AviãoCim3.png" id="7_2c22q"]
+[ext_resource type="AudioStream" uid="uid://vl75ab7vft8v" path="res://Material Freeway/Material Freeway/sons/colide.wav" id="7_8vhvd"]
+[ext_resource type="Texture2D" uid="uid://b0ypa84meepb0" path="res://Aseprite/Aseprite/Dir1.png" id="8_bb2x8"]
+[ext_resource type="Texture2D" uid="uid://m1q0t58jhdlh" path="res://Aseprite/Aseprite/Dir2.png" id="9_60xba"]
+[ext_resource type="Texture2D" uid="uid://bg7nlj8fcg6uq" path="res://Aseprite/Aseprite/Dir3.png" id="10_2c22q"]
+[ext_resource type="Texture2D" uid="uid://c68her0suje4l" path="res://Aseprite/Aseprite/Esq1.png" id="11_vlk8b"]
+[ext_resource type="Texture2D" uid="uid://xt7svu1hpdid" path="res://Aseprite/Aseprite/Esq2.png" id="12_had87"]
+[ext_resource type="Texture2D" uid="uid://utrrl4glkhd4" path="res://Aseprite/Aseprite/Esq3.png" id="13_axwfv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ruciq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2enhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ruciq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yk6xx")
+}],
+"loop": true,
+"name": &"baixo",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bb2x8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_60xba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2c22q")
+}],
+"loop": true,
+"name": &"cima",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bb2x8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_60xba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2c22q")
+}],
+"loop": true,
+"name": &"direita",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vlk8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_had87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_axwfv")
+}],
+"loop": true,
+"name": &"esquerda",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2nbm"]
+radius = 31.0161
+
+[node name="Player" type="Area2D"]
+position = Vector2(94, 73)
+script = ExtResource("1_e2nbm")
+
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.29375, 0.30625)
+sprite_frames = SubResource("SpriteFrames_ruciq")
+animation = &"direita"
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(3, 4)
+shape = SubResource("CircleShape2D_e2nbm")
+debug_color = Color(0.872161, 0.140079, 0.310954, 0.42)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_8vhvd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
