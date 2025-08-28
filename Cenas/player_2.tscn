@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=3 uid="uid://llp67e7mvfu4"]
+
+[ext_resource type="Script" path="res://Cenas/player_2.gd" id="1_4aom4"]
+[ext_resource type="Texture2D" uid="uid://dbradekrlcdpk" path="res://Aseprite/Player2/Aviaovermelho2.png" id="2_4aom4"]
+[ext_resource type="Texture2D" uid="uid://do4ovdqc58ajw" path="res://Aseprite/Player2/Aviaovermelho6.png" id="3_ro1pu"]
+[ext_resource type="Texture2D" uid="uid://bqxe736yiblxd" path="res://Aseprite/Player2/Aviaovermelho10.png" id="4_wria0"]
+[ext_resource type="Texture2D" uid="uid://dycvjxqlj06vt" path="res://Aseprite/Player2/Aviaovermelho1.png" id="5_qsqf0"]
+[ext_resource type="Texture2D" uid="uid://bibyue4gwbefo" path="res://Aseprite/Player2/Aviaovermelho5.png" id="6_tibwc"]
+[ext_resource type="Texture2D" uid="uid://d374rbvyei74c" path="res://Aseprite/Player2/Aviaovermelho9.png" id="7_0gems"]
+[ext_resource type="Texture2D" uid="uid://djuag0dm8gvyf" path="res://Aseprite/Player2/Aviaovermelho8.png" id="8_ntlaq"]
+[ext_resource type="Texture2D" uid="uid://4gyafn8srwep" path="res://Aseprite/Player2/Aviaovermelho4.png" id="9_eml4s"]
+[ext_resource type="Texture2D" uid="uid://dhi5gmy7fa0wr" path="res://Aseprite/Player2/Aviaovermelho12.png" id="10_te6g5"]
+[ext_resource type="Texture2D" uid="uid://jafl0dmrioco" path="res://Aseprite/Player2/Aviaovermelho11.png" id="11_su4l5"]
+[ext_resource type="Texture2D" uid="uid://net4jfwc0d1e" path="res://Aseprite/Player2/Aviaovermelho7.png" id="12_lpjva"]
+[ext_resource type="Texture2D" uid="uid://g7xr2n8dc106" path="res://Aseprite/Player2/Aviaovermelho3.png" id="13_2df0a"]
+[ext_resource type="AudioStream" uid="uid://vl75ab7vft8v" path="res://Material Freeway/Material Freeway/sons/colide.wav" id="14_iikal"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4aom4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4aom4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ro1pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wria0")
+}],
+"loop": true,
+"name": &"baixo2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qsqf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tibwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0gems")
+}],
+"loop": true,
+"name": &"cima2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ntlaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eml4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_te6g5")
+}],
+"loop": true,
+"name": &"direita2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_su4l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lpjva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2df0a")
+}],
+"loop": true,
+"name": &"esquerda2",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2nbm"]
+radius = 32.0156
+
+[node name="Player2" type="Area2D"]
+show_behind_parent = true
+position = Vector2(94, 73)
+script = ExtResource("1_4aom4")
+
+[node name="Animacao2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7.25, 0.499998)
+scale = Vector2(0.671875, 0.591667)
+sprite_frames = SubResource("SpriteFrames_4aom4")
+animation = &"direita2"
+frame_progress = 0.933935
+
+[node name="Colisao2" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 0)
+shape = SubResource("CircleShape2D_e2nbm")
+debug_color = Color(0.872161, 0.140079, 0.310954, 0.42)
+
+[node name="Audio2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_iikal")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

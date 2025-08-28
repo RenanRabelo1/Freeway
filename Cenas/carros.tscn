@@ -54,16 +54,6 @@ animations = [{
 "loop": true,
 "name": &"Passaro03",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Passaro04",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Passaro05",
-"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seikp"]
@@ -80,11 +70,10 @@ position = Vector2(5.00002, 4.99998)
 rotation = -1.5708
 scale = Vector2(0.23531, 0.246683)
 sprite_frames = SubResource("SpriteFrames_cc6av")
-animation = &"Passaro03"
+animation = &"Passaro01"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(10, -2.04939e-05)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_seikp")
 
 [node name="Notificador" type="VisibleOnScreenNotifier2D" parent="."]

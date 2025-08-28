@@ -41,16 +41,6 @@ animations = [{
 "loop": true,
 "name": &"Oposta3",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Oposta4",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Oposta5",
-"speed": 5.0
 }]
 
 [node name="carros_invertidos" type="RigidBody2D"]
@@ -73,3 +63,5 @@ animation = &"Oposta1"
 position = Vector2(62.4311, 30.9555)
 rotation = -1.56982
 scale = Vector2(0.486333, 2.35231)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
