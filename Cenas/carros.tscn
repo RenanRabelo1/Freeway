@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cv1e0h7bujdsj"]
+[gd_scene load_steps=13 format=3 uid="uid://cv1e0h7bujdsj"]
 
 [ext_resource type="Script" uid="uid://dtllg7dulmfiy" path="res://Cenas/carros.gd" id="1_pvg5f"]
 [ext_resource type="Texture2D" uid="uid://c2yrjmfxb035g" path="res://Aseprite/Helicopter/Helicopter1.png" id="2_eyynr"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dr5o3gnqna5v4" path="res://Aseprite/Gaivota/Gaivota1.png" id="5_dhytv"]
 [ext_resource type="Texture2D" uid="uid://56puy0nfyjqg" path="res://Aseprite/Gaivota/Gaivota2.png" id="6_7g5ho"]
 [ext_resource type="Texture2D" uid="uid://cdj5fjvvqj7sx" path="res://Aseprite/Gaivota/Gaivota3.png" id="7_6jem2"]
-[ext_resource type="Texture2D" uid="uid://bho86s63p2ktm" path="res://Aseprite/Gaivota/Ray..png" id="8_21wbt"]
+[ext_resource type="Texture2D" uid="uid://cg3ite1gmrj4p" path="res://Aseprite/Helicopter/Rayquaza2.png" id="9_vvb7t"]
+[ext_resource type="Texture2D" uid="uid://bnkufewywb1j8" path="res://Aseprite/Helicopter/Rayquaza3.png" id="10_rp2vo"]
+[ext_resource type="Texture2D" uid="uid://dkwis33eljokh" path="res://Aseprite/Helicopter/Rayquaza1.png" id="10_vvb7t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cc6av"]
 animations = [{
@@ -41,7 +43,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_21wbt")
+"texture": ExtResource("9_vvb7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rp2vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vvb7t")
 }],
 "loop": true,
 "name": &"Passaro03",
@@ -59,9 +67,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seikp"]
-size = Vector2(34.9999, 50.0001)
+size = Vector2(20, 50.0001)
 
-[node name="Carros" type="RigidBody2D"]
+[node name="carros" type="RigidBody2D"]
 rotation = 1.5708
 scale = Vector2(0.2, 0.2)
 gravity_scale = 0.0
@@ -72,15 +80,16 @@ position = Vector2(5.00002, 4.99998)
 rotation = -1.5708
 scale = Vector2(0.23531, 0.246683)
 sprite_frames = SubResource("SpriteFrames_cc6av")
-animation = &"Passaro01"
+animation = &"Passaro03"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
-position = Vector2(5, -2.04939e-05)
+position = Vector2(10, -2.04939e-05)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_seikp")
 
 [node name="Notificador" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(5, -1.96759e-05)
+position = Vector2(10.0975, 0.0362868)
 rotation = 0.00712227
-scale = Vector2(1.77244, 2.53829)
+scale = Vector2(1.02186, 2.53829)
 
 [connection signal="screen_exited" from="Notificador" to="." method="_on_notificador_screen_exited"]

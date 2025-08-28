@@ -1,19 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://btq7nv7h3hoi"]
+[gd_scene load_steps=9 format=3 uid="uid://btq7nv7h3hoi"]
 
+[ext_resource type="Script" uid="uid://bptxk2lyrfnqs" path="res://Cenas/carros_invertidos.gd" id="1_0w1nn"]
 [ext_resource type="Texture2D" uid="uid://b36wguj1onfs6" path="res://Aseprite/Aseprite/HelicopteroInvertido1.png" id="1_edvbs"]
 [ext_resource type="Texture2D" uid="uid://3a62ssxpu23b" path="res://Aseprite/Aseprite/PassaroInvertido1.png" id="2_4ktix"]
+[ext_resource type="Texture2D" uid="uid://dg80jpggtj8q3" path="res://Aseprite/Helicopter/HelicopteroInvertido2.png" id="2_em71b"]
+[ext_resource type="Texture2D" uid="uid://daht1lctyuovv" path="res://Aseprite/Helicopter/HelicopteroInvertido3.png" id="3_0w1nn"]
 [ext_resource type="Texture2D" uid="uid://di4p0nn88her2" path="res://Aseprite/Aseprite/RayquazaInvertido.png" id="7_ojx3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssims"]
-size = Vector2(37.231, 151.049)
+size = Vector2(11.213, 53.1975)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_axspm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_edvbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_em71b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0w1nn")
 }],
-"loop": false,
+"loop": true,
 "name": &"Oposta1",
 "speed": 5.0
 }, {
@@ -21,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_4ktix")
 }],
-"loop": false,
+"loop": true,
 "name": &"Oposta2",
 "speed": 5.0
 }, {
@@ -29,7 +38,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_ojx3b")
 }],
-"loop": false,
+"loop": true,
 "name": &"Oposta3",
 "speed": 5.0
 }, {
@@ -46,21 +55,21 @@ animations = [{
 
 [node name="carros_invertidos" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_0w1nn")
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 170)
-rotation = -1.51725
+position = Vector2(62.7615, 30.9997)
+rotation = -1.57208
 scale = Vector2(0.891705, 0.892944)
 shape = SubResource("RectangleShape2D_ssims")
 
 [node name="AnimacaoOposta" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 165.556)
-rotation = -6.19705
-scale = Vector2(0.639865, 0.594215)
+position = Vector2(68.75, 26)
+scale = Vector2(0.257202, 0.257228)
 sprite_frames = SubResource("SpriteFrames_axspm")
-animation = &"Oposta2"
+animation = &"Oposta1"
 
 [node name="Notificador" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(21, 171)
-rotation = -1.52428
-scale = Vector2(2.14014, 9.78868)
+position = Vector2(62.4311, 30.9555)
+rotation = -1.56982
+scale = Vector2(0.486333, 2.35231)

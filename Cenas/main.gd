@@ -2,8 +2,6 @@ extends Node
 
 var cena_carros = preload("res://Cenas/carros.tscn")
 var cena_carros_invertidos = preload("res://Cenas/carros_invertidos.tscn")
-var pistas_rapidas_y = [104, 272, 488]
-var pistas_lentas_y = [160, 216, 324, 384, 438, 544, 600]
 var score = 0 
 # Pistas para carros da ESQUERDA → DIREITA
 var pistas_esquerda_direita_y = [104, 272, 488]
@@ -31,15 +29,14 @@ func _on_timer_carros_rapidos_timeout() -> void:
 	carro.set_linear_damp(0.0)
 
 func _on_timer_carros_lentos_timeout() -> void:
-	var carro = cena_carros.instantiate()
+	var carro = cena_carros_invertidos.instantiate()
 	add_child(carro)
 	# Só usa pistas da DIREITA → ESQUERDA
 	var pista_y = pistas_direita_esquerda_y[randi_range(0, pistas_direita_esquerda_y.size() - 1)]
 	carro.position = Vector2(1300, pista_y)
-	carro.scale.x = -1
 	carro.set_linear_velocity(Vector2(-randf_range(700.0, 720.0), 0))  # Mais lento
 	carro.set_linear_damp(0.0)
-	
+
 
 
 
@@ -65,28 +62,27 @@ func _on_hud_reinicia() -> void:
 	get_tree().reload_current_scene()
 	
 	
-var time = 0
-var s = true
-var final = 50.0  
+var inicio = 0
+var final = 4.0  
 var incrementar = 1  
 var score1 = 0
+var finalt = true
 func start_game_timer() -> void:
 
-	
-	time = 0
-	s = true
+	inicio = 0
 	incrementar = 1  
 
-	while time < final:
-		await get_tree().create_timer(s).timeout
-		time = min(time + s, final)
-		$tempo.text = str(time)
+	while inicio < final:
 		
-		if score1==1:
+		inicio = min(inicio + incrementar, final)
+		$tempo.text = str(inicio)
+		
+		if final==1:
 			$tempo.text = str("ENCERRADO")
-			
+	finalt = false
 
-	s = false
+
+
    
 
 func _on_fim_timeout() -> void:

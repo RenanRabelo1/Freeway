@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmoycaoidmwfr"]
+[gd_scene load_steps=9 format=3 uid="uid://cmoycaoidmwfr"]
 
 [ext_resource type="PackedScene" uid="uid://dpgao5ebcjpab" path="res://Cenas/player.tscn" id="1_74bqr"]
 [ext_resource type="Script" uid="uid://bkxk87m1sronk" path="res://Cenas/main.gd" id="1_x6di6"]
@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://dqrf0b3qsqerm" path="res://Material Freeway/Material Freeway/sons/tema.wav" id="4_n00j1"]
 [ext_resource type="AudioStream" uid="uid://4xlnpc5s64x8" path="res://Material Freeway/Material Freeway/sons/ponto.wav" id="5_x6di6"]
 [ext_resource type="AudioStream" uid="uid://w170jc0o0ho8" path="res://Material Freeway/Material Freeway/sons/ganhou.wav" id="6_btbr3"]
-[ext_resource type="PackedScene" uid="uid://041erdobc3wq" path="res://Cenas/tempohud.tscn" id="9_btbr3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_x6di6")
@@ -45,8 +44,8 @@ stream = ExtResource("6_btbr3")
 [node name="HUD" parent="." instance=ExtResource("4_lb8y5")]
 
 [node name="Fim" type="Timer" parent="."]
-
-[node name="tempohud" parent="." instance=ExtResource("9_btbr3")]
+wait_time = 40.0
+autostart = true
 
 [connection signal="pontua" from="Player" to="." method="_on_player_pontua"]
 [connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rápidos_timeout"]
