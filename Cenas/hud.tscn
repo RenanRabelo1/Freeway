@@ -100,6 +100,15 @@ theme_override_fonts/font = ExtResource("1_kgovw")
 theme_override_font_sizes/font_size = 32
 text = "0"
 
+[node name="TimeOver" type="Label" parent="."]
+offset_left = 400.0
+offset_top = 267.0
+offset_right = 880.0
+offset_bottom = 312.0
+theme_override_fonts/font = ExtResource("1_kgovw")
+theme_override_font_sizes/font_size = 32
+text = "Acabou o Tempo!"
+
 [node name="Reiniciar" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0

@@ -3,6 +3,7 @@ extends Node
 var cena_carros = preload("res://Cenas/carros.tscn")
 var cena_carros_invertidos = preload("res://Cenas/carros_invertidos.tscn")
 var score = 0 
+var score2 = 0
 # Pistas para carros da ESQUERDA → DIREITA
 var pistas_esquerda_direita_y = [104, 272, 488]
 
@@ -12,6 +13,7 @@ var pistas_direita_esquerda_y = [160, 216, 324, 384, 438, 544, 600]
 func _ready() -> void:
 	$HUD/Placar.text = str(score)
 	$HUD/Mensagem.hide()
+	$HUD/TimeOver.hide()
 	$HUD/Button.hide()
 	$AudioTema.play()
 	randomize()
@@ -41,54 +43,45 @@ func _on_timer_carros_lentos_timeout() -> void:
 
 
 func _on_player_pontua() -> void:
-	if score <= 10:
+	if score <= 1:
 		score += 1
 		$HUD/Placar.text = str(score)
 		$AudioPonto.play()
 		$Player.position = $Player.posicao_inicial
-	if score == 10:
+	if score == 1:
 		$HUD/Mensagem.show()
 		$HUD/Button.show()
 		$TimerCarrosRapidos.stop()
 		$TimerCarrosLentos.stop()
 		$AudioVitoria.play()
 		$Player.speed = 0
-		
-		
-		
-
 
 func _on_hud_reinicia() -> void:
 	get_tree().reload_current_scene()
-	
-	
-var inicio = 0
-var final = 4.0  
-var incrementar = 1  
-var score1 = 0
-var finalt = true
-func start_game_timer() -> void:
-
-	inicio = 0
-	incrementar = 1  
-
-	while inicio < final:
-		
-		inicio = min(inicio + incrementar, final)
-		$tempo.text = str(inicio)
-		
-		if final==1:
-			$tempo.text = str("ENCERRADO")
-	finalt = false
-
-
-
-   
 
 func _on_fim_timeout() -> void:
 	pass # Replace with function body.
-	$player.position=$player.posicao_inicial
+	$Player.position=$Player.posicao_inicial
+	$Player2.position=$Player2.posicao_inicial
 	$TimerCarrosLentos.stop()
 	$TimerCarrosRapidos.stop()
+	$HUD/Button.show()
+	$HUD/TimeOver.show()
 	$Player.speed = 0
+	$Player2.speed = 0
 	
+
+
+func _on_player_2_pontua() -> void:
+	if score2 <= 1:
+		score2 += 1
+		$HUD/Placar2.text = str(score2)
+		$AudioPonto.play()
+		$Player2.position = $Player2.posicao_inicial
+	if score2 == 1:
+		$HUD/Mensagem.show()
+		$HUD/Button.show()
+		$TimerCarrosRapidos.stop()
+		$TimerCarrosLentos.stop()
+		$AudioVitoria.play()
+		$Player.speed = 0
