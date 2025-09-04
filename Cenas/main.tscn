@@ -48,13 +48,13 @@ stream = ExtResource("6_btbr3")
 [node name="HUD" parent="." instance=ExtResource("4_lb8y5")]
 
 [node name="Fim" type="Timer" parent="."]
-wait_time = 2.214
+wait_time = 45.262
 autostart = true
 
 [connection signal="pontua" from="Player" to="." method="_on_player_pontua"]
 [connection signal="pontua" from="Player2" to="." method="_on_player_2_pontua"]
-[connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rapidos_timeout"]
 [connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rápidos_timeout"]
+[connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rapidos_timeout"]
 [connection signal="timeout" from="TimerCarrosLentos" to="." method="_on_timer_carros_lentos_timeout"]
 [connection signal="reinicia" from="HUD" to="." method="_on_hud_reinicia"]
 [connection signal="timeout" from="Fim" to="." method="_on_fim_timeout"]
